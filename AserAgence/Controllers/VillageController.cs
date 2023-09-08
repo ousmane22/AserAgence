@@ -50,9 +50,9 @@ namespace AserAgence.Controllers
         // GET: Village/Create
         public IActionResult Create()
         {
-            ViewData["CommuneID"] = new SelectList(_context.Commune, "Id", "Id");
-            ViewData["DepartmentID"] = new SelectList(_context.Department, "Id", "Id");
-            ViewData["RegionID"] = new SelectList(_context.Region, "Id", "Id");
+            ViewData["CommuneID"] = new SelectList(_context.Commune, "Id", "CommuneName");
+            ViewData["DepartmentID"] = new SelectList(_context.Department, "Id", "DepartmentName");
+            ViewData["RegionID"] = new SelectList(_context.Region, "Id", "RegionName");
             return View();
         }
 

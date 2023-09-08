@@ -16,12 +16,12 @@ namespace AserAgence.Data
 
         public DbSet<Region> Region { get; set; } = default!;
 
-        public DbSet<AserAgence.Models.Commune>? Commune { get; set; }
+        public DbSet<Commune>? Commune { get; set; }
 
-        public DbSet<AserAgence.Models.Department>? Department { get; set; }
+        public DbSet<Department>? Department { get; set; }
 
-        public DbSet<AserAgence.Models.Village>? Village { get; set; }
+        public DbSet<Village>? Village { get; set; }
 
-        public DbSet<AserAgence.Models.Survey>? Survey { get; set; }
+        public DbSet<Survey>? Survey { get; set; }
     }
 }

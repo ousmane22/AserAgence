@@ -1,20 +1,18 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using AserAgence.Data;
+using static System.Formats.Asn1.AsnWriter;
+
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<AserAgenceDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("AserAgenceDbContext") ?? throw new InvalidOperationException("Connection string 'AserAgenceDbContext' not found.")));
 
-// Add services to the container.
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
-
-// Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Home/Error");
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
 
@@ -29,4 +27,7 @@ app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
+using var scope = app.Services.CreateScope();
+var dbContext = scope.ServiceProvider.GetRequiredService<AserAgenceDbContext>();
+DbInitialize.Initialize(dbContext);
 app.Run();
