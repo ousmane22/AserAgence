@@ -4,14 +4,17 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Village Management</h1>
+<h1>List Villages</h1>
 
 <p>
-    <a class="btn btn-info text-white" asp-action="Create">Create New Village</a>
+    <a class="btn btn-info text-white" asp-action="Create">Create Village</a>
 </p>
 <table class="table">
     <thead>
         <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.VillageName)
+            </th>
             <th>
                 @Html.DisplayNameFor(model => model.VillageCode)
             </th>
@@ -43,6 +46,9 @@
 @foreach (var item in Model) {
         <tr>
             <td>
+                @Html.DisplayFor(modelItem => item.VillageName)
+            </td>
+            <td>
                 @Html.DisplayFor(modelItem => item.VillageCode)
             </td>
             <td>
@@ -58,18 +64,18 @@
                 @Html.DisplayFor(modelItem => item.IsElelctrify)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Region.Id)
+                @Html.DisplayFor(modelItem => item.Region.RegionName)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Department.Id)
+                @Html.DisplayFor(modelItem => item.Department.DepartmentName)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Commune.Id)
+                @Html.DisplayFor(modelItem => item.Commune.CommuneName)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.VillageID">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.VillageID">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.VillageID">Delete</a>
+                <a class="btn btn-warning text-white" asp-action="Edit" asp-route-id="@item.VillageID">Edit</a>
+                    @*<a class="btn btn-secondary text-white" asp-action="Details" asp-route-id="@item.VillageID">Details</a>*@
+                    <a class="btn btn-danger text-white" asp-action="Delete" asp-route-id="@item.VillageID">Delete</a>
             </td>
         </tr>
 }

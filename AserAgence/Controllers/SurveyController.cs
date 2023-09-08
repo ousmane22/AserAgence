@@ -48,7 +48,7 @@ namespace AserAgence.Controllers
         // GET: Survey/Create
         public IActionResult Create()
         {
-            ViewData["VillageID"] = new SelectList(_context.Village, "VillageID", "VillageID");
+            ViewData["VillageID"] = new SelectList(_context.Village, "VillageID", "VillageName");
             return View();
         }
 
@@ -57,7 +57,7 @@ namespace AserAgence.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,SurveyDate,ElectrifiedHouseholdsSurveyed,VillageID")] Survey survey)
+        public async Task<IActionResult> Create(Survey survey)
         {
             if (ModelState.IsValid)
             {
@@ -65,7 +65,7 @@ namespace AserAgence.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["VillageID"] = new SelectList(_context.Village, "VillageID", "VillageID", survey.VillageID);
+            ViewData["VillageID"] = new SelectList(_context.Village, "VillageID", "VillageName", survey.VillageID);
             return View(survey);
         }
 

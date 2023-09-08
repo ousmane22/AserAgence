@@ -126,6 +126,9 @@ namespace AserAgence.Migrations
                     b.Property<string>("VillageCode")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("VillageName")
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("VillageID");
 
                     b.HasIndex("CommuneID");

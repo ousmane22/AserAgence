@@ -61,14 +61,24 @@ namespace AserAgence.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("VillageID,VillageCode,ElectrifiedHouseholds,Longitude,Latitude,IsElelctrify,RegionID,DepartmentID,CommuneID")] Village village)
+        public async Task<IActionResult> Create([Bind("VillageID,VillageName,ElectrifiedHouseholds,Longitude,Latitude,IsElectrify,RegionID,DepartmentID,CommuneID")] Village village)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(village);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                var region = await _context.Region.FindAsync(village.RegionID);
+                var department = await _context.Department.FindAsync(village.DepartmentID);
+                var commune = await _context.Commune.FindAsync(village.CommuneID);
+
+                if (region != null && department != null && commune != null)
+                {
+                    village.VillageCode = $"{region.Id:D2}{department.Id:D2}{commune.Id:D2}{Guid.NewGuid().ToString().Substring(0, 14)}";
+
+                    _context.Add(village);
+                    await _context.SaveChangesAsync();
+                    return RedirectToAction(nameof(Index));
+                }
             }
+
             ViewData["CommuneID"] = new SelectList(_context.Commune, "Id", "Id", village.CommuneID);
             ViewData["DepartmentID"] = new SelectList(_context.Department, "Id", "Id", village.DepartmentID);
             ViewData["RegionID"] = new SelectList(_context.Region, "Id", "Id", village.RegionID);
@@ -88,9 +98,9 @@ namespace AserAgence.Controllers
             {
                 return NotFound();
             }
-            ViewData["CommuneID"] = new SelectList(_context.Commune, "Id", "Id", village.CommuneID);
-            ViewData["DepartmentID"] = new SelectList(_context.Department, "Id", "Id", village.DepartmentID);
-            ViewData["RegionID"] = new SelectList(_context.Region, "Id", "Id", village.RegionID);
+            ViewData["CommuneID"] = new SelectList(_context.Commune, "Id", "CommuneName", village.CommuneID);
+            ViewData["DepartmentID"] = new SelectList(_context.Department, "Id", "DepartmentName", village.DepartmentID);
+            ViewData["RegionID"] = new SelectList(_context.Region, "Id", "RegionName", village.RegionID);
             return View(village);
         }
 
@@ -99,7 +109,7 @@ namespace AserAgence.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("VillageID,VillageCode,ElectrifiedHouseholds,Longitude,Latitude,IsElelctrify,RegionID,DepartmentID,CommuneID")] Village village)
+        public async Task<IActionResult> Edit(int id, [Bind("VillageID,VillageName,VillageCode,ElectrifiedHouseholds,Longitude,Latitude,IsElelctrify,RegionID,DepartmentID,CommuneID")] Village village)
         {
             if (id != village.VillageID)
             {

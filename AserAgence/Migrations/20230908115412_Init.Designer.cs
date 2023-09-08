@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AserAgence.Migrations
 {
     [DbContext(typeof(AserAgenceDbContext))]
-    [Migration("20230908101530_Init")]
+    [Migration("20230908115412_Init")]
     partial class Init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -126,6 +126,9 @@ namespace AserAgence.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("VillageCode")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("VillageName")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("VillageID");

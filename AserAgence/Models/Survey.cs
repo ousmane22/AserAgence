@@ -8,13 +8,9 @@
         public int ElectrifiedHouseholdsSurveyed { get; set; }
         public int VillageID { get; set; }
 
-        public Village Village { get; set; }
+        public Village? Village { get; set; }
 
-        public Survey()
-        {
-
-            SurveyDate = DateTime.Now;
-        }
+        
 
     }
 }

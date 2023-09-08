@@ -54,6 +54,7 @@ namespace AserAgence.Migrations
                 {
                     VillageID = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
+                    VillageName = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     VillageCode = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     ElectrifiedHouseholds = table.Column<int>(type: "int", nullable: false),
                     Longitude = table.Column<double>(type: "float", nullable: false),

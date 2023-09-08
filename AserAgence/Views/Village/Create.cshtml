@@ -6,58 +6,59 @@
 
 <h1>Create New Village</h1>
 
+
 <hr />
 <div class="row">
-   <div class="card">
-       <div class="card-body">
-            <div class="col-md-7">
-                <form asp-action="Create">
-                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                    <div class="form-group">
-                        <label asp-for="VillageCode" class="control-label"></label>
-                        <input asp-for="VillageCode" class="form-control" />
-                        <span asp-validation-for="VillageCode" class="text-danger"></span>
-                    </div>
-                    <div class="form-group">
-                        <label asp-for="ElectrifiedHouseholds" class="control-label"></label>
-                        <input asp-for="ElectrifiedHouseholds" class="form-control" />
-                        <span asp-validation-for="ElectrifiedHouseholds" class="text-danger"></span>
-                    </div>
-                    <div class="form-group">
-                        <label asp-for="Longitude" class="control-label"></label>
-                        <input asp-for="Longitude" class="form-control" />
-                        <span asp-validation-for="Longitude" class="text-danger"></span>
-                    </div>
-                    <div class="form-group">
-                        <label asp-for="Latitude" class="control-label"></label>
-                        <input asp-for="Latitude" class="form-control" />
-                        <span asp-validation-for="Latitude" class="text-danger"></span>
-                    </div>
-
-                    <div class="form-group">
-                        <label asp-for="RegionID" class="control-label"></label>
-                        <select asp-for="RegionID" class="form-control" asp-items="ViewBag.RegionID"></select>
-                    </div>
-                    <div class="form-group">
-                        <label asp-for="DepartmentID" class="control-label"></label>
-                        <select asp-for="DepartmentID" class="form-control" asp-items="ViewBag.DepartmentID"></select>
-                    </div>
-                    <div class="form-group">
-                        <label asp-for="CommuneID" class="control-label"></label>
-                        <select asp-for="CommuneID" class="form-control" asp-items="ViewBag.CommuneID"></select>
-                    </div>
-                    <div class="form-group form-check mt-1">
-                        <label class="form-check-label">
-                            <input class="form-check-input" asp-for="IsElelctrify" /> @Html.DisplayNameFor(model => model.IsElelctrify)
-                        </label>
-                    </div>
-                    <div class="form-group mt-3">
-                        <input type="submit" value="Create" class="btn btn-primary" />
-                    </div>
-                </form>
+    <div class="col-md-7">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="VillageName" class="control-label"></label>
+                <input asp-for="VillageName" class="form-control" />
+                <span asp-validation-for="VillageName" class="text-danger"></span>
             </div>
-       </div>
-   </div>
+            @*<div class="form-group">
+                <label asp-for="VillageCode" class="control-label"></label>
+                <input asp-for="VillageCode" class="form-control" />
+                <span asp-validation-for="VillageCode" class="text-danger"></span>
+            </div>*@
+            <div class="form-group">
+                <label asp-for="ElectrifiedHouseholds" class="control-label"></label>
+                <input asp-for="ElectrifiedHouseholds" class="form-control" />
+                <span asp-validation-for="ElectrifiedHouseholds" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Longitude" class="control-label"></label>
+                <input asp-for="Longitude" class="form-control" />
+                <span asp-validation-for="Longitude" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Latitude" class="control-label"></label>
+                <input asp-for="Latitude" class="form-control" />
+                <span asp-validation-for="Latitude" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="IsElelctrify" /> @Html.DisplayNameFor(model => model.IsElelctrify)
+                </label>
+            </div>
+            <div class="form-group">
+                <label asp-for="RegionID" class="control-label"></label>
+                <select asp-for="RegionID" class ="form-control" asp-items="ViewBag.RegionID"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="DepartmentID" class="control-label"></label>
+                <select asp-for="DepartmentID" class ="form-control" asp-items="ViewBag.DepartmentID"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="CommuneID" class="control-label"></label>
+                <select asp-for="CommuneID" class ="form-control" asp-items="ViewBag.CommuneID"></select>
+            </div>
+            <div class="form-group mt-2">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
 </div>
 
 <div>

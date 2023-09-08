@@ -3,6 +3,7 @@
     public class Village
     {
         public int VillageID { get; set; }
+        public string? VillageName { get; set; }
         public string? VillageCode { get; set; }
         public int ElectrifiedHouseholds { get; set; }
         public double Longitude { get; set; }

@@ -11,6 +11,12 @@
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.VillageName)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.VillageName)
+        </dd>
+        <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.VillageCode)
         </dt>
         <dd class = "col-sm-10">
@@ -44,19 +50,19 @@
             @Html.DisplayNameFor(model => model.Region)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Region.Id)
+            @Html.DisplayFor(model => model.Region.RegionName)
         </dd>
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Department)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Department.Id)
+            @Html.DisplayFor(model => model.Department.DepartmentName)
         </dd>
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Commune)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Commune.Id)
+            @Html.DisplayFor(model => model.Commune.CommuneName)
         </dd>
     </dl>
 </div>
