@@ -1,0 +1,47 @@
+﻿@model IEnumerable<AserAgence.Models.Survey>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a class="btn btn-primary" asp-action="Create">+New Survey</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.SurveyDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ElectrifiedHouseholdsSurveyed)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Village)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.SurveyDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ElectrifiedHouseholdsSurveyed)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Village.VillageID)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

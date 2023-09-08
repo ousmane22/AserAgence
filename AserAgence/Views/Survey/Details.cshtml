@@ -1,0 +1,36 @@
+﻿@model AserAgence.Models.Survey
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Survey</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.SurveyDate)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.SurveyDate)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ElectrifiedHouseholdsSurveyed)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ElectrifiedHouseholdsSurveyed)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Village)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Village.VillageID)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

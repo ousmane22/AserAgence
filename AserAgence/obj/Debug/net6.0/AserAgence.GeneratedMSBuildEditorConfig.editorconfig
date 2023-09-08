@@ -16,6 +16,46 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Users\OUSMANE\Desktop\Development\Web\AserAgence\AserAgence\AserAgence
 build_property._RazorSourceGeneratorDebug = 
 
+[C:/Users/OUSMANE/Desktop/Development/Web/AserAgence/AserAgence/AserAgence/Views/Commune/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29tbXVuZVxDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/OUSMANE/Desktop/Development/Web/AserAgence/AserAgence/AserAgence/Views/Commune/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29tbXVuZVxEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/OUSMANE/Desktop/Development/Web/AserAgence/AserAgence/AserAgence/Views/Commune/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29tbXVuZVxEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/OUSMANE/Desktop/Development/Web/AserAgence/AserAgence/AserAgence/Views/Commune/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29tbXVuZVxFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/OUSMANE/Desktop/Development/Web/AserAgence/AserAgence/AserAgence/Views/Commune/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29tbXVuZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/OUSMANE/Desktop/Development/Web/AserAgence/AserAgence/AserAgence/Views/Department/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVwYXJ0bWVudFxDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/OUSMANE/Desktop/Development/Web/AserAgence/AserAgence/AserAgence/Views/Department/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVwYXJ0bWVudFxEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/OUSMANE/Desktop/Development/Web/AserAgence/AserAgence/AserAgence/Views/Department/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVwYXJ0bWVudFxEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/OUSMANE/Desktop/Development/Web/AserAgence/AserAgence/AserAgence/Views/Department/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVwYXJ0bWVudFxFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/OUSMANE/Desktop/Development/Web/AserAgence/AserAgence/AserAgence/Views/Department/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVwYXJ0bWVudFxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/OUSMANE/Desktop/Development/Web/AserAgence/AserAgence/AserAgence/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -24,12 +64,72 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/OUSMANE/Desktop/Development/Web/AserAgence/AserAgence/AserAgence/Views/Regions/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVnaW9uc1xDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/OUSMANE/Desktop/Development/Web/AserAgence/AserAgence/AserAgence/Views/Regions/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVnaW9uc1xEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/OUSMANE/Desktop/Development/Web/AserAgence/AserAgence/AserAgence/Views/Regions/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVnaW9uc1xEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/OUSMANE/Desktop/Development/Web/AserAgence/AserAgence/AserAgence/Views/Regions/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVnaW9uc1xFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/OUSMANE/Desktop/Development/Web/AserAgence/AserAgence/AserAgence/Views/Regions/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVnaW9uc1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/OUSMANE/Desktop/Development/Web/AserAgence/AserAgence/AserAgence/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/OUSMANE/Desktop/Development/Web/AserAgence/AserAgence/AserAgence/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/OUSMANE/Desktop/Development/Web/AserAgence/AserAgence/AserAgence/Views/Survey/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3VydmV5XENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/OUSMANE/Desktop/Development/Web/AserAgence/AserAgence/AserAgence/Views/Survey/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3VydmV5XERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/OUSMANE/Desktop/Development/Web/AserAgence/AserAgence/AserAgence/Views/Survey/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3VydmV5XERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/OUSMANE/Desktop/Development/Web/AserAgence/AserAgence/AserAgence/Views/Survey/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3VydmV5XEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/OUSMANE/Desktop/Development/Web/AserAgence/AserAgence/AserAgence/Views/Survey/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3VydmV5XEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/OUSMANE/Desktop/Development/Web/AserAgence/AserAgence/AserAgence/Views/Village/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVmlsbGFnZVxDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/OUSMANE/Desktop/Development/Web/AserAgence/AserAgence/AserAgence/Views/Village/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVmlsbGFnZVxEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/OUSMANE/Desktop/Development/Web/AserAgence/AserAgence/AserAgence/Views/Village/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVmlsbGFnZVxEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/OUSMANE/Desktop/Development/Web/AserAgence/AserAgence/AserAgence/Views/Village/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVmlsbGFnZVxFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/OUSMANE/Desktop/Development/Web/AserAgence/AserAgence/AserAgence/Views/Village/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVmlsbGFnZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/OUSMANE/Desktop/Development/Web/AserAgence/AserAgence/AserAgence/Views/_ViewImports.cshtml]

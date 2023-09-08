@@ -1,0 +1,46 @@
+﻿@model AserAgence.Models.Survey
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create New Survey</h1>
+
+
+<hr />
+<div class="row">
+   <div class="card">
+       <div class="card-body">
+            <div class="col-md-4">
+                <form asp-action="Create">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group">
+                        <label asp-for="SurveyDate" class="control-label"></label>
+                        <input asp-for="SurveyDate" class="form-control" />
+                        <span asp-validation-for="SurveyDate" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="ElectrifiedHouseholdsSurveyed" class="control-label"></label>
+                        <input asp-for="ElectrifiedHouseholdsSurveyed" class="form-control" />
+                        <span asp-validation-for="ElectrifiedHouseholdsSurveyed" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="VillageID" class="control-label"></label>
+                        <select asp-for="VillageID" class="form-control" asp-items="ViewBag.VillageID"></select>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="Create" class="btn btn-primary" />
+                    </div>
+                </form>
+            </div>
+       </div>
+   </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,69 @@
+﻿@model AserAgence.Models.Village
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Village</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="VillageID" />
+            <div class="form-group">
+                <label asp-for="VillageCode" class="control-label"></label>
+                <input asp-for="VillageCode" class="form-control" />
+                <span asp-validation-for="VillageCode" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ElectrifiedHouseholds" class="control-label"></label>
+                <input asp-for="ElectrifiedHouseholds" class="form-control" />
+                <span asp-validation-for="ElectrifiedHouseholds" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Longitude" class="control-label"></label>
+                <input asp-for="Longitude" class="form-control" />
+                <span asp-validation-for="Longitude" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Latitude" class="control-label"></label>
+                <input asp-for="Latitude" class="form-control" />
+                <span asp-validation-for="Latitude" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="IsElelctrify" /> @Html.DisplayNameFor(model => model.IsElelctrify)
+                </label>
+            </div>
+            <div class="form-group">
+                <label asp-for="RegionID" class="control-label"></label>
+                <select asp-for="RegionID" class="form-control" asp-items="ViewBag.RegionID"></select>
+                <span asp-validation-for="RegionID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DepartmentID" class="control-label"></label>
+                <select asp-for="DepartmentID" class="form-control" asp-items="ViewBag.DepartmentID"></select>
+                <span asp-validation-for="DepartmentID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CommuneID" class="control-label"></label>
+                <select asp-for="CommuneID" class="form-control" asp-items="ViewBag.CommuneID"></select>
+                <span asp-validation-for="CommuneID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
