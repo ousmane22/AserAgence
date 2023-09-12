@@ -1,42 +1,39 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using AserAgence.Models;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.EntityFrameworkCore;
-using AserAgence.Data;
-using AserAgence.Models;
+using AserAgence.Repositories;
+using AserAgence.Repositories.Interfaces;
 
 namespace AserAgence.Controllers
 {
     public class RegionController : Controller
     {
-        private readonly AserAgenceDbContext _context;
+        private readonly IRegionRepository _regionRepository;
 
-        public RegionController(AserAgenceDbContext context)
+        public RegionController(IRegionRepository regionRepository)
         {
-            _context = context;
+            _regionRepository = regionRepository;
         }
 
         // GET: Regions
         public async Task<IActionResult> Index()
         {
-              return _context.Region != null ? 
-                          View(await _context.Region.ToListAsync()) :
-                          Problem("Entity set 'AserAgenceDbContext.Region'  is null.");
+            var regions = await _regionRepository.GetAllAsync();
+            return View(regions);
         }
 
         // GET: Regions/Details/5
         public async Task<IActionResult> Details(int? id)
         {
-            if (id == null || _context.Region == null)
+            if (id == null)
             {
                 return NotFound();
             }
 
-            var region = await _context.Region
-                .FirstOrDefaultAsync(m => m.Id == id);
+            var region = await _regionRepository.GetByIdAsync(id.Value);
+
             if (region == null)
             {
                 return NotFound();
@@ -52,40 +49,38 @@ namespace AserAgence.Controllers
         }
 
         // POST: Regions/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(Region region)
+        public async Task<IActionResult> Create([Bind("RegionName")] Region region)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(region);
-                await _context.SaveChangesAsync();
+                await _regionRepository.CreateAsync(region);
                 return RedirectToAction(nameof(Index));
             }
+
             return View(region);
         }
 
         // GET: Regions/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
-            if (id == null || _context.Region == null)
+            if (id == null)
             {
                 return NotFound();
             }
 
-            var region = await _context.Region.FindAsync(id);
+            var region = await _regionRepository.GetByIdAsync(id.Value);
+
             if (region == null)
             {
                 return NotFound();
             }
+
             return View(region);
         }
 
         // POST: Regions/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("Id,RegionName")] Region region)
@@ -99,12 +94,11 @@ namespace AserAgence.Controllers
             {
                 try
                 {
-                    _context.Update(region);
-                    await _context.SaveChangesAsync();
+                    await _regionRepository.UpdateAsync(region);
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!RegionExists(region.Id))
+                    if (!await RegionExists(region.Id))
                     {
                         return NotFound();
                     }
@@ -115,19 +109,20 @@ namespace AserAgence.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
+
             return View(region);
         }
 
         // GET: Regions/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
-            if (id == null || _context.Region == null)
+            if (id == null)
             {
                 return NotFound();
             }
 
-            var region = await _context.Region
-                .FirstOrDefaultAsync(m => m.Id == id);
+            var region = await _regionRepository.GetByIdAsync(id.Value);
+
             if (region == null)
             {
                 return NotFound();
@@ -141,23 +136,20 @@ namespace AserAgence.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            if (_context.Region == null)
+            var regionExists = await RegionExists(id);
+
+            if (!regionExists)
             {
-                return Problem("Entity set 'AserAgenceDbContext.Region'  is null.");
+                return NotFound();
             }
-            var region = await _context.Region.FindAsync(id);
-            if (region != null)
-            {
-                _context.Region.Remove(region);
-            }
-            
-            await _context.SaveChangesAsync();
+
+            await _regionRepository.DeleteAsync(id);
             return RedirectToAction(nameof(Index));
         }
 
-        private bool RegionExists(int id)
+        private async Task<bool> RegionExists(int id)
         {
-          return (_context.Region?.Any(e => e.Id == id)).GetValueOrDefault();
+            return await _regionRepository.ExistsAsync(id);
         }
     }
 }

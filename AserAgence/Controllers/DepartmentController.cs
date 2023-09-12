@@ -1,42 +1,37 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using AserAgence.Models;
+using Microsoft.AspNetCore.Mvc;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.EntityFrameworkCore;
-using AserAgence.Data;
-using AserAgence.Models;
+using AserAgence.Repositories;
+using AserAgence.Repositories.Interfaces;
 
 namespace AserAgence.Controllers
 {
     public class DepartmentController : Controller
     {
-        private readonly AserAgenceDbContext _context;
+        private readonly IDepartmentRepository _departmentRepository;
 
-        public DepartmentController(AserAgenceDbContext context)
+        public DepartmentController(IDepartmentRepository departmentRepository)
         {
-            _context = context;
+            _departmentRepository = departmentRepository;
         }
 
         // GET: Department
         public async Task<IActionResult> Index()
         {
-              return _context.Department != null ? 
-                          View(await _context.Department.ToListAsync()) :
-                          Problem("Entity set 'AserAgenceDbContext.Department'  is null.");
+            var departments = await _departmentRepository.GetAllAsync();
+            return View(departments.ToList());
         }
 
         // GET: Department/Details/5
         public async Task<IActionResult> Details(int? id)
         {
-            if (id == null || _context.Department == null)
+            if (id == null)
             {
                 return NotFound();
             }
 
-            var department = await _context.Department
-                .FirstOrDefaultAsync(m => m.Id == id);
+            var department = await _departmentRepository.GetByIdAsync(id.Value);
             if (department == null)
             {
                 return NotFound();
@@ -52,16 +47,13 @@ namespace AserAgence.Controllers
         }
 
         // POST: Department/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(Department department)
+        public async Task<IActionResult> Create([Bind("Id,DepartmentName")] Department department)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(department);
-                await _context.SaveChangesAsync();
+                await _departmentRepository.CreateAsync(department);
                 return RedirectToAction(nameof(Index));
             }
             return View(department);
@@ -70,25 +62,24 @@ namespace AserAgence.Controllers
         // GET: Department/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
-            if (id == null || _context.Department == null)
+            if (id == null)
             {
                 return NotFound();
             }
 
-            var department = await _context.Department.FindAsync(id);
+            var department = await _departmentRepository.GetByIdAsync(id.Value);
             if (department == null)
             {
                 return NotFound();
             }
+
             return View(department);
         }
 
         // POST: Department/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, Department department)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,DepartmentName")] Department department)
         {
             if (id != department.Id)
             {
@@ -99,12 +90,11 @@ namespace AserAgence.Controllers
             {
                 try
                 {
-                    _context.Update(department);
-                    await _context.SaveChangesAsync();
+                    await _departmentRepository.UpdateAsync(department);
                 }
-                catch (DbUpdateConcurrencyException)
+                catch
                 {
-                    if (!DepartmentExists(department.Id))
+                    if (!_departmentRepository.ExistsAsync(department.Id).Result)
                     {
                         return NotFound();
                     }
@@ -121,13 +111,12 @@ namespace AserAgence.Controllers
         // GET: Department/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
-            if (id == null || _context.Department == null)
+            if (id == null)
             {
                 return NotFound();
             }
 
-            var department = await _context.Department
-                .FirstOrDefaultAsync(m => m.Id == id);
+            var department = await _departmentRepository.GetByIdAsync(id.Value);
             if (department == null)
             {
                 return NotFound();
@@ -141,23 +130,8 @@ namespace AserAgence.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            if (_context.Department == null)
-            {
-                return Problem("Entity set 'AserAgenceDbContext.Department'  is null.");
-            }
-            var department = await _context.Department.FindAsync(id);
-            if (department != null)
-            {
-                _context.Department.Remove(department);
-            }
-            
-            await _context.SaveChangesAsync();
+            await _departmentRepository.DeleteAsync(id);
             return RedirectToAction(nameof(Index));
-        }
-
-        private bool DepartmentExists(int id)
-        {
-          return (_context.Department?.Any(e => e.Id == id)).GetValueOrDefault();
         }
     }
 }
