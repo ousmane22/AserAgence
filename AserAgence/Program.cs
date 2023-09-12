@@ -2,11 +2,13 @@
 using Microsoft.Extensions.DependencyInjection;
 using AserAgence.Data;
 using static System.Formats.Asn1.AsnWriter;
+using AserAgence.Configurations;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<AserAgenceDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("AserAgenceDbContext") ?? throw new InvalidOperationException("Connection string 'AserAgenceDbContext' not found.")));
 
+builder.Services.RegisterRepositories();
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
