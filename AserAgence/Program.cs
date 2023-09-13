@@ -1,12 +1,16 @@
-﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using AserAgence.Data;
 using static System.Formats.Asn1.AsnWriter;
 using AserAgence.Configurations;
+using Microsoft.AspNetCore.Identity;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<AserAgenceDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("AserAgenceDbContext") ?? throw new InvalidOperationException("Connection string 'AserAgenceDbContext' not found.")));
+
+builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = false)
+    .AddEntityFrameworkStores<AserAgenceDbContext>();
 
 builder.Services.RegisterRepositories();
 builder.Services.AddControllersWithViews();
@@ -22,7 +26,8 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
-
+app.UseAuthentication();;
+app.MapRazorPages();
 app.UseAuthorization();
 
 app.MapControllerRoute(

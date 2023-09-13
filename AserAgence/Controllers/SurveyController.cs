@@ -5,9 +5,11 @@ using System.Linq;
 using System.Threading.Tasks;
 using AserAgence.Repositories;
 using AserAgence.Repositories.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 
 namespace AserAgence.Controllers
 {
+    [Authorize]
     public class SurveyController : Controller
     {
         private readonly ISurveyRepository _surveyRepository;

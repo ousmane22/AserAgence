@@ -4,10 +4,10 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using AserAgence.Models;
-
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 namespace AserAgence.Data
 {
-    public class AserAgenceDbContext : DbContext
+    public class AserAgenceDbContext : IdentityDbContext
     {
         public AserAgenceDbContext (DbContextOptions<AserAgenceDbContext> options)
             : base(options)

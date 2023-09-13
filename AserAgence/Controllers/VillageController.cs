@@ -5,9 +5,11 @@ using System;
 using System.Threading.Tasks;
 using AserAgence.Repositories;
 using AserAgence.Repositories.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 
 namespace AserAgence.Controllers
 {
+    [Authorize]
     public class VillageController : Controller
     {
         private readonly IVillageRepository _villageRepository;
